@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 92622530776a9cf45bfff79cf8d71a61
+labels:
+- 3d
+- Architecture
+- Prop
+- Tool
+- Modeling
+- Uv
+- Bsp
+- Csg
+- Vertices
+- Vertex
+PluginImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder: {}
+  isPreloaded: 0
+  platformData:
+    Any:
+      enabled: 1
+      settings: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
