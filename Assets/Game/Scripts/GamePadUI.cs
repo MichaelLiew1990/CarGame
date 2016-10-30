@@ -31,10 +31,21 @@ public class GamePadUI : MonoBehaviour
         ResetAllImage();
         if (net.GetNetPlayer() != null)
         {
-            float h = net.GetNetPlayer().sync_H;
-            float v = net.GetNetPlayer().sync_V;
-            imgJoystickCenter.rectTransform.localPosition = new Vector3(h * 27f, v * 27f, 0);
-            clientCar.MoveCar(h, v);
+            bool isSteer = false;
+            if (isSteer)
+            {
+                float h = net.GetNetPlayer().sync_Steer;
+                float v = net.GetNetPlayer().sync_Gear * net.GetNetPlayer().sync_Throttle;
+                imgJoystickCenter.rectTransform.localPosition = new Vector3(h * 27f, v * 27f, 0);
+                clientCar.MoveCar(h, v);
+            }
+            else
+            {
+                float h = net.GetNetPlayer().sync_H;
+                float v = net.GetNetPlayer().sync_V;
+                imgJoystickCenter.rectTransform.localPosition = new Vector3(h * 27f, v * 27f, 0);
+                clientCar.MoveCar(h, v);
+            }
         }
 
         if (Input.GetKey(KeyCode.Joystick1Button0))
@@ -62,7 +73,7 @@ public class GamePadUI : MonoBehaviour
     {
         if (net.GetNetPlayer() != null)
         {
-            net.GetNetPlayer().CmdUpdateCarPose(clientCar.transform.rotation, new Vector3(0,2,0), net.localIP); 
+            net.GetNetPlayer().CmdUpdateCarPose(clientCar.transform.rotation, new Vector3(0, 2, 0), net.localIP);
         }
     }
 

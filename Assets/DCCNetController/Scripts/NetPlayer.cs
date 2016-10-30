@@ -5,12 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class NetPlayer : NetworkBehaviour
 {
+    //手柄参数（包括按钮）
     [SyncVar]
-    //[HideInInspector]
-    public float sync_H;//服务器更新客户端读取
+    public float sync_H;
     [SyncVar]
-    //[HideInInspector]
-    public float sync_V;//服务器更新客户端读取
+    public float sync_V;
+    [SyncVar]
+    public bool sync_Fire1;
+    [SyncVar]
+    public bool sync_Fire2;
+    [SyncVar]
+    public bool sync_Fire3;
+    [SyncVar]
+    public bool sync_Fire4;
+    //方向盘参数
+    [SyncVar]
+    public float sync_Steer;
+    [SyncVar]
+    public float sync_Throttle;
+    [SyncVar]
+    public float sync_Brake;
+    [SyncVar]
+    public int sync_Gear;//-1->R  0->N
 
 
     //下面的不成功，因为外面获取hostIP值时LocalPlayer并不一定有值，有可能跟服务端调用哪个NetPlayer组件发送消息有关
